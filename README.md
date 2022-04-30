@@ -4,6 +4,12 @@ Read Fudan JWC News from your terminal.
 
 Never open [JWC](https://jwc.fudan.edu.cn/) again!
 
+- [fudan-jwc-news](#fudan-jwc-news)
+  - [Installation](#installation)
+    - [pipx](#pipx)
+    - [pip](#pip)
+  - [Usage](#usage)
+  - [Example output](#example-output)
 ## Installation
 
 ### pipx
