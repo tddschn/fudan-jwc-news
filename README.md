@@ -31,3 +31,14 @@ Options:
                                   copy it or customize the installation.
   --help                          Show this message and exit.
 ```
+
+## Example output
+```
+$ jwc-news -l 2
+04-29 关于2022年春季学期复旦大学水平测试(补测试)考试通知
+http://www.jwc.fudan.edu.cn/bf/be/c25325a442302/page.htm
+
+04-29 2022年春季学期本科学生转专业报名名单
+http://www.jwc.fudan.edu.cn/bf/bc/c25325a442300/page.htm
+
+```
