@@ -4,9 +4,14 @@
 # from icecream import ic
 
 # ic(sys.path)
+import io
+from pathlib import Path
 from bs4 import BeautifulSoup as bs
 import requests as req
 import sys
+import typer  # type: ignore
+
+app = typer.Typer(name='jwc-news')
 
 jwc_url = 'http://www.jwc.fudan.edu.cn'
 jwc_news_url = 'http://www.jwc.fudan.edu.cn/9397/list.htm'
@@ -40,43 +45,58 @@ def jwc_get_latest_news_from_news_url() -> dict:
     return result
 
 
-def jwc_get_latest_news_from_main_site() -> dict:
-    """
-    get news from the jwc's main website
-    date is not available on that site
-    """
-    jwc = req.get(jwc_url)
-    jwc.encoding = 'utf-8'
-    jwc_html = jwc.text
-    jwc_soup = bs(jwc_html, 'html.parser')
+# def jwc_get_latest_news_from_main_site() -> dict:
+#     """
+#     get news from the jwc's main website
+#     date is not available on that site
+#     """
+#     jwc = req.get(jwc_url)
+#     jwc.encoding = 'utf-8'
+#     jwc_html = jwc.text
+#     jwc_soup = bs(jwc_html, 'html.parser')
 
-    result = {}
-    for i in range(1, 9):
-        # there are 8 items in the news section.
-        news_elem = jwc_soup.select(f'#wp_news_w45 tr:nth-child({i}) a')[0]
-        result[i] = {
-            # 'news': news_elem['title'],
-            'news': news_elem.text,
-            'link': jwc_url + news_elem['href']  # type: ignore
-        }
-    return result
+#     result = {}
+#     for i in range(1, 9):
+#         # there are 8 items in the news section.
+#         news_elem = jwc_soup.select(f'#wp_news_w45 tr:nth-child({i}) a')[0]
+#         result[i] = {
+#             # 'news': news_elem['title'],
+#             'news': news_elem.text,
+#             'link': jwc_url + news_elem['href']  # type: ignore
+#         }
+#     return result
 
 
-def main(limit=14, file=sys.stdout, end='\n') -> None:
-    print_kwargs = {'file': file, 'end': end}
-    if not isinstance(limit, int):
-        limit = 7
-    elif limit > 14:
-        limit = 14
+@app.command()
+def jwc_news(
+    limit: int = typer.Option(14,
+                              '--limit',
+                              '-l',
+                              help='limit the number of news',
+                              max=14),
+    output: Path = typer.Option(None,
+                                '--output',
+                                '-o',
+                                help='output file, default is stdout'),
+) -> None:
     result = jwc_get_latest_news_from_news_url()
     # return result
-    for i in range(1, limit):
-        print(result[i]['news'], **print_kwargs)
-        print(result[i]['link'], **print_kwargs)
+    out = io.StringIO()
+    for i in range(1, limit + 1):
+        print(result[i]['news'], file=out)
+        print(result[i]['link'], file=out)
 
-        if i < limit - 1:
-            print(**print_kwargs)
+        if i < limit:
+            print(file=out)
+    if output is None:
+        print(out.getvalue())
+    else:
+        output.write_text(out.getvalue())
+
+
+def main() -> None:
+    app()
 
 
 if __name__ == '__main__':
-    main(limit=14)
+    main()
