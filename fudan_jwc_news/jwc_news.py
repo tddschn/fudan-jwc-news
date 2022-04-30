@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from . import __app_name__
+from . import __app_name__, logger
 import io, json, time
 from pathlib import Path
 from bs4 import BeautifulSoup as bs
@@ -58,6 +58,7 @@ def update_cache():
         }
     }
     """
+    logger.info('updating cache...')
     cache_dir.mkdir(exist_ok=True)
     cache = {}
     cache.update(last_updated_at=int(time.time()))
@@ -77,6 +78,7 @@ def check_if_cache_expired(expiration: int) -> bool:
 
 
 def read_cache_content(limit: int = 14) -> str:
+    logger.info('reading cache...')
     with io.open(cache_file, 'r', encoding='utf-8') as f:
         cache = json.load(f)
     out = io.StringIO()
