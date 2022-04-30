@@ -7,6 +7,9 @@ license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/tddschn/fudan-jwc-news"
 repository = "https://github.com/tddschn/fudan-jwc-news"
+classifiers = [
+	"Topic :: Utilities",
+]
 keywords = ["fudan", "news"]
 
 [tool.poetry.urls]
