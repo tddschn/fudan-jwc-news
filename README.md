@@ -2,7 +2,7 @@
 
 Read Fudan JWC News from your terminal. 
 
-Never open [JWC](https://github.com/tddschn/fudan-jwc-news) again!
+Never open [JWC](https://jwc.fudan.edu.cn/) again!
 
 ## Installation
 
