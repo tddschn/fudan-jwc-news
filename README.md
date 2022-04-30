@@ -28,6 +28,7 @@ Options:
                                   x<=14]
   -o, --output PATH               output file, default is stdout
   -f, --force-update              do not use cache and force update
+  -v, --version                   Show the application's version and exit.
   --install-completion [bash|zsh|fish|powershell|pwsh]
                                   Install completion for the specified shell.
   --show-completion [bash|zsh|fish|powershell|pwsh]
