@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from . import __app_name__, logger
+from . import __version__, __app_name__, logger
 import io, json, time
 from pathlib import Path
 from bs4 import BeautifulSoup as bs
@@ -13,6 +13,12 @@ jwc_url = 'http://www.jwc.fudan.edu.cn'
 jwc_news_url = 'http://www.jwc.fudan.edu.cn/9397/list.htm'
 cache_dir = Path.home() / '.cache' / __app_name__
 cache_file = cache_dir / 'data.json'
+
+
+def _version_callback(value: bool) -> None:
+    if value:
+        typer.echo(f'{__app_name__} v{__version__}')
+        raise typer.Exit()
 
 
 def jwc_get_latest_news_from_news_url() -> dict[int, dict[str, str]]:
@@ -91,22 +97,27 @@ def read_cache_content(limit: int = 14) -> str:
 
 
 @app.command()
-def jwc_news(
-    limit: int = typer.Option(14,
-                              '--limit',
-                              '-l',
-                              help='limit the number of news',
-                              max=14),
-    output: Path = typer.Option(None,
-                                '--output',
-                                '-o',
-                                help='output file, default is stdout'),
-    force_update: bool = typer.Option(
-        False,
-        '--force-update',
-        '-f',
-        help='do not use cache and force update'),
-) -> None:
+def jwc_news(limit: int = typer.Option(14,
+                                       '--limit',
+                                       '-l',
+                                       help='limit the number of news',
+                                       max=14),
+             output: Path = typer.Option(
+                 None, '--output', '-o',
+                 help='output file, default is stdout'),
+             force_update: bool = typer.Option(
+                 False,
+                 '--force-update',
+                 '-f',
+                 help='do not use cache and force update'),
+             version: bool = typer.Option(
+                 None,
+                 '--version',
+                 '-v',
+                 help='Show the application\'s version and exit.',
+                 callback=_version_callback,
+                 is_eager=True,
+             )) -> None:
     if force_update or check_if_cache_expired(expiration=60 * 60 * 12):
         update_cache()
     out = read_cache_content(limit=limit)
