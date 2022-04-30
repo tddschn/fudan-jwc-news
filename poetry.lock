@@ -112,6 +112,14 @@ optional = false
 python-versions = ">=3.5"
 
 [[package]]
+name = "logging-utils-tddschn"
+version = "0.1.7"
+description = "Logging utilities for personal use."
+category = "dev"
+optional = false
+python-versions = ">=3.10,<4.0"
+
+[[package]]
 name = "more-itertools"
 version = "8.12.0"
 description = "More routines for operating on iterables, beyond itertools"
@@ -265,7 +273,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "81b09d782c76a5f18d37adc4074248047ea7c2baa2d43c52ace875ad0db89c3b"
+content-hash = "84dbed35b4929714fb2a40627b4e52e71de5b55a12a1830cfc630c4595b72512"
 
 [metadata.files]
 atomicwrites = [
@@ -311,6 +319,10 @@ colorama = [
 idna = [
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},
     {file = "idna-3.3.tar.gz", hash = "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"},
+]
+logging-utils-tddschn = [
+    {file = "logging-utils-tddschn-0.1.7.tar.gz", hash = "sha256:26ad16b2ac2ee4f17d181e0ff26df2872d3f2bedace142ead83ccaae8d34800d"},
+    {file = "logging_utils_tddschn-0.1.7-py3-none-any.whl", hash = "sha256:158bcff7b6f3f26f8580b7ea56c0f8bd78ddf80c5592e6deab546ec30c030fe3"},
 ]
 more-itertools = [
     {file = "more-itertools-8.12.0.tar.gz", hash = "sha256:7dc6ad46f05f545f900dd59e8dfb4e84a4827b97b3cfecb175ea0c7d247f6064"},
