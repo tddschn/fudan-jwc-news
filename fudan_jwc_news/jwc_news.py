@@ -3,9 +3,7 @@
 from . import __version__, __app_name__, logger
 import io, json, time
 from pathlib import Path
-from bs4 import BeautifulSoup as bs
-import requests as req
-import typer  # type: ignore
+import typer
 
 app = typer.Typer(name='jwc-news')
 
@@ -26,6 +24,8 @@ def jwc_get_latest_news_from_news_url() -> dict[int, dict[str, str]]:
     get news from the jwc's news website
     date is available on that site
     """
+    from bs4 import BeautifulSoup as bs
+    import requests as req
     jwc = req.get(jwc_news_url)
     jwc.encoding = 'utf-8'
     jwc_html = jwc.text
