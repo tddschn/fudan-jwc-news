@@ -31,8 +31,8 @@ toml = "^0.10.2"
 yapf = "^0.32.0"
 better-exceptions = "^0.3.3"
 bump2version = "^1.0.1"
-logging-utils-tddschn = "^0.1.7"
 scalene = "^1.5.8"
+logging-utils-tddschn = "^0.1.7"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

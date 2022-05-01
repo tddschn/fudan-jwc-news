@@ -3,7 +3,7 @@ __app_name__ = 'fudan-jwc-news'
 
 try:
     # raise ImportError
-    raise
+    # raise
     from logging_utils_tddschn import get_logger
     logger, _ = get_logger(__app_name__)
 except:

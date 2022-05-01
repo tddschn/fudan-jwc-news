@@ -132,11 +132,14 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "logging-utils-tddschn"
-version = "0.1.7"
+version = "0.1.8"
 description = "Logging utilities for personal use."
 category = "dev"
 optional = false
 python-versions = ">=3.10,<4.0"
+
+[package.dependencies]
+utils-tddschn = ">=0.1.4,<0.2.0"
 
 [[package]]
 name = "more-itertools"
@@ -338,6 +341,14 @@ secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "cer
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
+name = "utils-tddschn"
+version = "0.1.4"
+description = ""
+category = "dev"
+optional = false
+python-versions = ">=3.10,<4.0"
+
+[[package]]
 name = "wcwidth"
 version = "0.2.5"
 description = "Measures the displayed width of unicode strings in a terminal"
@@ -412,8 +423,8 @@ idna = [
     {file = "idna-3.3.tar.gz", hash = "sha256:9d643ff0a55b762d5cdb124b8eaa99c66322e2157b69160bc32796e824360e6d"},
 ]
 logging-utils-tddschn = [
-    {file = "logging-utils-tddschn-0.1.7.tar.gz", hash = "sha256:26ad16b2ac2ee4f17d181e0ff26df2872d3f2bedace142ead83ccaae8d34800d"},
-    {file = "logging_utils_tddschn-0.1.7-py3-none-any.whl", hash = "sha256:158bcff7b6f3f26f8580b7ea56c0f8bd78ddf80c5592e6deab546ec30c030fe3"},
+    {file = "logging-utils-tddschn-0.1.8.tar.gz", hash = "sha256:fb6ba94645ff4ccda264534cae9d2e7502c00c022bdf3ffb6684bffd732bccdd"},
+    {file = "logging_utils_tddschn-0.1.8-py3-none-any.whl", hash = "sha256:8b96903320cddaf4f31a03f5e07e34be5cd2b7b21415743607c3cc47f1fd5bb1"},
 ]
 more-itertools = [
     {file = "more-itertools-8.12.0.tar.gz", hash = "sha256:7dc6ad46f05f545f900dd59e8dfb4e84a4827b97b3cfecb175ea0c7d247f6064"},
@@ -536,6 +547,10 @@ typer = [
 urllib3 = [
     {file = "urllib3-1.26.9-py2.py3-none-any.whl", hash = "sha256:44ece4d53fb1706f667c9bd1c648f5469a2ec925fcf3a776667042d645472c14"},
     {file = "urllib3-1.26.9.tar.gz", hash = "sha256:aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"},
+]
+utils-tddschn = [
+    {file = "utils-tddschn-0.1.4.tar.gz", hash = "sha256:e44c5f96d9da1d7c09935fd3c17cc1fa9127b756b6078af472f5e10fb6e18a56"},
+    {file = "utils_tddschn-0.1.4-py3-none-any.whl", hash = "sha256:14e2fcba91103eabf488be2e3843886aa61cfa5d30cb211d6f9b9f6527de1785"},
 ]
 wcwidth = [
     {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},
