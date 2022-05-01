@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fudan-jwc-news"
-version = "0.3.9"
+version = "0.4.0"
 description = "Read Fudan JWC news from your terminal"
 authors = ["Xinyuan Chen <45612704+tddschn@users.noreply.github.com>"]
 license = "MIT"
