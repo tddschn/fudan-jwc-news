@@ -11,6 +11,7 @@ Never check [JWC](https://jwc.fudan.edu.cn/) again!
     - [pip](#pip)
   - [Usage](#usage)
   - [Example output](#example-output)
+  - [See also](#see-also)
 
 ## Installation
 
@@ -55,3 +56,7 @@ http://www.jwc.fudan.edu.cn/bf/be/c25325a442302/page.htm
 http://www.jwc.fudan.edu.cn/bf/bc/c25325a442300/page.htm
 
 ```
+
+## See also
+
+- https://github.com/tddschn/fudan-utils : Get your grades from command line, and more
